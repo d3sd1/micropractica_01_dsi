@@ -1,0 +1,22 @@
+.content {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  background-color: var(--corporativeColor);
+}
+
+h1 {
+  text-align: center
+}
+
+table > tr > th {
+  text-align: left;
+  text-decoration: underline;
+}
+
+.divider {
+  margin-top: 5%;
+  margin-bottom: 5%;
+}

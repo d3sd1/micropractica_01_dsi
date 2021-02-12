@@ -1,1 +1,39 @@
-<p>comanda works!</p>
+<div class="content">
+  <h1>Comanda</h1>
+  <div>
+    Consumición:
+    <label>
+      <select name="select" [(ngModel)]="pedirPlatoId">
+        <option *ngFor="let platoDisponible of platosDisponibles"
+                [value]="platoDisponible.id">{{platoDisponible.nombre}}</option>
+      </select>
+    </label>
+    <button (click)="addPlato()">+</button>
+  </div>
+
+  <div class="divider">
+    <b>Consumiciones:</b>
+  </div>
+  <div>
+    <p *ngIf="pedido.length == 0">No hay productos seleccionados.</p>
+    <table *ngIf="pedido.length > 0">
+      <tr>
+        <th>Producto</th>
+        <th>Precio</th>
+        <th></th>
+      </tr>
+      <tr *ngFor="let pedido of pedido">
+        <td>{{pedido.plato.nombre}}</td>
+        <td>{{pedido.plato.precio | currency:'EUR':'symbol':undefined:'es'}}</td>
+        <td>
+          <button (click)="rmPlato(pedido.id)">-</button>
+        </td>
+      </tr>
+      <tr>
+        <td><b>Total</b></td>
+        <td>{{totalPrice | currency:'EUR':'symbol':undefined:'es'}}</td>
+        <td></td>
+      </tr>
+    </table>
+  </div>
+</div>
